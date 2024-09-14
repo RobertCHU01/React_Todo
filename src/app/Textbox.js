@@ -45,13 +45,23 @@ const Textbox = ({ userId }) => {
           }
         });
       }
+    },
+    onError: (error) => {
+      console.error('Error inserting todo:', error);
+      console.error('GraphQL Errors:', error.graphQLErrors);
+      console.error('Network Error:', error.networkError);
     }
   });
 
-  const handleAddTodo = () => {
+  const handleAddTodo = async () => {
     if (text.trim()) {
-      insertTodo({ variables: { text, userId } });
-      setText('');
+      try {
+        const result = await insertTodo({ variables: { text, userId } });
+        console.log('Todo insertion result:', result);
+        setText('');
+      } catch (error) {
+        console.error('Error in handleAddTodo:', error);
+      }
     }
   };
 

@@ -19,12 +19,14 @@ const MainContent = ({ userId, username, logout }) => {
   useEffect(() => {
     const insertUserData = async () => {
       try {
-        await insertUser({
+        const result = await insertUser({
           variables: { id: userId, name: username }
         });
-        console.log('User inserted successfully');
+        console.log('User insertion result:', result);
       } catch (error) {
         console.error('Error inserting user:', error);
+        console.error('Error details:', error.graphQLErrors);
+        console.error('Network error:', error.networkError);
       }
     };
 
