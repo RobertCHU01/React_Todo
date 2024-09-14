@@ -3,6 +3,7 @@
     "name": "Todo",
     "slug": "Todo",
     "version": "1.0.0",
+    "scheme": "mytodoapp",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -12,12 +13,19 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.devzvf16tcmsff5y7l3.mytodoapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.devzvf16tcmsff5y7l3.mytodoapp"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "TodoApp"
       }
     },
     "web": {
